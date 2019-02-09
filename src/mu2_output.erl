@@ -2,8 +2,6 @@
 
 -export([write_mutant/3, make_mutant_name/3, get_module_name_from_filename/1]).
 
--compile(export_all).
-
 -include("../include/mutations.hrl").
 
 write_mutant(Folder, MutantName, ST) ->
