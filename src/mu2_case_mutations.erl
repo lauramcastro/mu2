@@ -50,7 +50,7 @@ case_mutations() ->
 			),
       ?MUTATION("case Expr@ of Pats@@@ when Guards@@@ -> Body@@@ end",
 		begin
-		    A = random:uniform(length(Pats@@@)),
+		    A = rand:uniform(length(Pats@@@)),
 		    B = random_not_n(length(Pats@@@), A),
 		    NewPats@@@ = swap(Pats@@@, A, B),
 		    NewGuards@@@ = swap(Guards@@@, A, B),
@@ -65,7 +65,7 @@ case_mutations() ->
 			),
       ?MUTATION("case Expr@ of Pats@@@ when Guards@@@ -> Body@@@ end",
 		begin
-		    A = random:uniform(length(Pats@@@)),
+		    A = rand:uniform(length(Pats@@@)),
 		    B = random_not_n(length(Pats@@@), A),
 		    NewGuards@@@ = swap(Guards@@@, A, B),
 		    ?TO_AST("case Expr@ of Pats@@@ when NewGuards@@@-> Body@@@ end")
@@ -75,7 +75,7 @@ case_mutations() ->
 			 (length(Pats@@@) > 1) and (lists:flatten(lists:map(fun api_refac:exported_vars/1, Pats@@@)) == [])),
       ?MUTATION("case Expr@ of Pats@@@ when Guards@@@ -> Body@@@ end",
 		begin
-		    A = random:uniform(length(Pats@@@)),
+		    A = rand:uniform(length(Pats@@@)),
 		    B = random_not_n(length(Pats@@@), A),
 		    NewPats@@@ = swap(Pats@@@, A, B),
 		    ?TO_AST("case Expr@ of NewPats@@@ when Guards@@@-> Body@@@ end")
@@ -103,7 +103,7 @@ case_mutations() ->
 random_not_n(1,1) ->
     exit("Called for a random number between 1 and 1 thats not 1...");
 random_not_n(Range, Not) ->
-    case random:uniform(Range) of
+    case rand:uniform(Range) of
 	Not ->
 	    random_not_n(Range, Not);
 	Val ->

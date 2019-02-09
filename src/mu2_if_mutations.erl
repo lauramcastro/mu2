@@ -11,7 +11,7 @@ if_mutations() ->
     [{swap_if_order,?MUTATION_MATCH("if Guards@@@ -> Body@@@ end"),
       ?MUTATION("if Guards@@@ -> Body@@@ end",
 		begin
-		    A = random:uniform(length(Guards@@@)),
+		    A = rand:uniform(length(Guards@@@)),
 		    B = mu2_case_mutations:random_not_n(length(Guards@@@), A),
 		    NewGuards@@@ = mu2_case_mutations:swap(Guards@@@, A, B),
 		    NewBody@@@ = mu2_case_mutations:swap(Body@@@, A, B),
@@ -20,7 +20,7 @@ if_mutations() ->
      {exchange_if_guard,?MUTATION_MATCH("if Guards@@@ -> Body@@@ end"),
       ?MUTATION("if Guards@@@ -> Body@@@ end",
 		begin
-		    A = random:uniform(length(Guards@@@)),
+		    A = rand:uniform(length(Guards@@@)),
 		    B = mu2_case_mutations:random_not_n(length(Guards@@@), A),
 		    NewGuards@@@ = mu2_case_mutations:swap(Guards@@@, A, B),
 		    ?TO_AST("if NewGuards@@@-> Body@@@ end")
@@ -28,7 +28,7 @@ if_mutations() ->
      {exchange_if_pattern,?MUTATION_MATCH("if Guards@@@ -> Body@@@ end"),
       ?MUTATION("if Guards@@@ -> Body@@@ end",
 		begin
-		    A = random:uniform(length(Guards@@@)),
+		    A = rand:uniform(length(Guards@@@)),
 		    B = mu2_case_mutations:random_not_n(length(Guards@@@), A),
 		    NewGuards@@@ = mu2_case_mutations:swap(Guards@@@, A, B),
 		    ?TO_AST("if NewGuards@@@-> Body@@@ end")

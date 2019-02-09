@@ -34,7 +34,7 @@ apply_extras(AST, Loc) ->
 	end.
 
 random_mutation(File, PosMuts) ->
-    Item = random:uniform(length(PosMuts)),
+    Item = rand:uniform(length(PosMuts)),
     {{Name, _Match, Mutation}, Loc} = lists:nth(Item, PosMuts),
     {ok, AST} = api_refac:get_ast(File),
     io:format("Applying ~p at ~p...~n", [Name, Loc]),

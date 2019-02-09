@@ -14,7 +14,7 @@ receive_mutations() ->
 			 length(Pats@@@) > 1),
       ?MUTATION("receive Pats@@@ when Guards@@@ -> Body@@@ end",
 		begin
-		    A = random:uniform(length(Pats@@@)),
+		    A = rand:uniform(length(Pats@@@)),
 		    B = random_not_n(length(Pats@@@), A),
 		    NewPats@@@ = swap(Pats@@@, A, B),
 		    NewGuards@@@ = swap(Guards@@@, A, B),
@@ -26,7 +26,7 @@ receive_mutations() ->
 			 length(Pats@@@) > 1),
       ?MUTATION("receive Pats@@@ when Guards@@@ -> Body@@@ end",
     		begin
-    		    A = random:uniform(length(Pats@@@)),
+    		    A = rand:uniform(length(Pats@@@)),
     		    B = random_not_n(length(Pats@@@), A),
     		    NewGuards@@@ = swap(Guards@@@, A, B),
     		    ?TO_AST("receive Pats@@@ when NewGuards@@@ -> Body@@@ end")
@@ -36,7 +36,7 @@ receive_mutations() ->
 			 length(Pats@@@) > 1),
       ?MUTATION("receive Pats@@@ when Guards@@@ -> Body@@@ end",
     		begin
-    		    A = random:uniform(length(Pats@@@)),
+    		    A = rand:uniform(length(Pats@@@)),
     		    B = random_not_n(length(Pats@@@), A),
     		    NewPats@@@ = swap(Pats@@@, A, B),
     		    ?TO_AST("receive NewPats@@@ when Guards@@@ -> Body@@@ end")

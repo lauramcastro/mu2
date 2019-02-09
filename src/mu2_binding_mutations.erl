@@ -20,7 +20,7 @@ binding_mutations() ->
 	 begin
 	     {wrapper,variable,{attr,_Loc,Attrs,_},_Image} = V@,
 		 {env,Env} = lists:keyfind(env,1,Attrs),
-	     {NewV,_NewVLoc} = lists:nth(random:uniform(length(Env)),Env),
+	     {NewV,_NewVLoc} = lists:nth(rand:uniform(length(Env)),Env),
 	     NewVList = atom_to_list(NewV),
 	     %% FIXME doesn't work - suspect nested definitions are broken...
 	     mu2_extras_server:add(?GLOBAL_MUTATION("OtherV@",
